@@ -1,0 +1,96 @@
+@font-face {
+	font-family: 'Starjedi';
+	src: url('../assets/fonts/Starjedi.ttf');
+}
+
+body {
+	margin: 0;
+	background-color: #263238;
+}
+
+header {
+	display: flex;
+	position: fixed;
+	width: 100%;
+	height: 80px;
+}
+
+.header-title-container {
+	width: 80%;
+}
+
+.header-title {
+	font-family: 'Starjedi';
+	text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+	font-size: 44px;
+	line-height: 80px;
+	color: #EEEEEE;
+	letter-spacing: 4px;
+	margin: 0 25px;
+}
+
+/* hamburger */
+.header-hamburger-container {
+  width: 60px;
+  height: 60px;
+  margin: 20px 20px 0 auto;
+  border-radius: 50%;
+  background-color: #EEEEEE;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+}
+
+.header-hamburger-menu {
+  height: 30px;
+  width: 30px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.header-hamburger-menu:hover {
+  cursor: pointer;
+}
+
+.header-hamburger-icon {
+  height: 8px;
+  width: 38px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50px;
+  background-color: #263238;
+  transform: translate(-50%, -50%) rotate(0deg);
+  transition: all ease 0.5s;
+}
+.header-hamburger-icon::before, .header-hamburger-icon::after {
+  content: "";
+  position: absolute;
+  height: inherit;
+  border-radius: inherit;
+  background-color: inherit;
+  margin: auto;
+  width: 50%;
+  transition: all ease 0.5s;
+}
+.header-hamburger-icon::before {
+  top: -12px;
+  left: 0;
+  transform-origin: left;
+}
+.header-hamburger-icon::after {
+  bottom: -12px;
+  right: 0;
+  transform-origin: right;
+}
+
+.open {
+  transform: translate(-50%, -50%) rotate(135deg);
+}
+.open::before {
+  top: 0;
+  transform: translateX(100%) rotate(-90deg);
+}
+.open::after {
+  bottom: 0;
+  transform: translateX(-100%) rotate(-90deg);
+}
