@@ -185,3 +185,21 @@ header {
 .header-menu-item:hover:after {
     width: 100%;
 }
+
+
+/* ===== FILMS ===== */
+
+.films-section {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.film-container {
+    width: calc(100% / 3);
+}
+
+.film-container > img {
+    max-width: 100%;
+}
