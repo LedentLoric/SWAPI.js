@@ -8,6 +8,11 @@ body {
 	background-color: #263238;
 }
 
+
+/* ================== */
+/* ===== HEADER ===== */
+/* ================== */
+
 header {
 	display: flex;
 	position: fixed;
@@ -29,7 +34,7 @@ header {
 	margin: 0 25px;
 }
 
-/* hamburger */
+/* Hamburger */
 .header-hamburger-container {
   width: 60px;
   height: 60px;
@@ -109,6 +114,8 @@ header {
   transform-origin: center;
 }
 
+/* Menu overlay */
 .header-menu-overlay-open {
   transform: translate(-50%,-50%) scale(1.2)
 }
+
