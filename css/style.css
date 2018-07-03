@@ -1,3 +1,10 @@
+/* ===== MEDIA QUERIES ===== */
+/* Laptop S : 992px */
+/* Tablet : 768px */
+/* Mobile L : 425px */
+/* Mobile S : 320px */
+/* ========================= */
+
 @font-face {
 	font-family: 'Starjedi';
 	src: url('../assets/fonts/Starjedi.ttf');
@@ -6,11 +13,25 @@
 body {
 	margin: 0;
 	background-color: #263238;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 a {
     text-decoration: none;
+}
+
+section {
+    width: 90%;
+    padding-top: 100px;
+    margin: auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 36px;
+    font-family: Starjedi;
+    color: #EEEEEE;
+    letter-spacing: 3px;
 }
 
 /* ================== */
@@ -133,11 +154,9 @@ header {
 
 .header-menu-container {
     position: absolute;
-    /*top: 80px;*/
     top: 0;
     right: 0;
     left: 0;
-    /*height: calc(100vh - 80px);*/
     height: 100vh;
     z-index: -1;
     display: flex;
@@ -187,19 +206,70 @@ header {
 }
 
 
+@media screen and (max-width: 425px) {
+    .header-title {
+        font-size: 32px;
+    }
+
+    .header-hamburger-container {
+        width: 46px;
+        height: 46px;
+    }
+
+    .header-hamburger-icon {
+        height: 6px;
+        width: 28px;
+    }
+
+    .header-menu-item {
+        font-size: 30px;
+    }
+}
+
 /* ===== FILMS ===== */
 
 .films-section {
-    width: 90%;
-    margin: auto;
     display: flex;
     flex-wrap: wrap;
 }
 
 .film-container {
-    width: calc(100% / 3);
+    width: calc(100% / 4);
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
 }
 
-.film-container > img {
+.film-content {
+    padding: 15px;
+}
+
+.film-content img {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
     max-width: 100%;
+    transition: box-shadow 0.2s ease-out;
+}
+.film-content img:hover {
+    box-shadow: 0 6px 30px rgba(0,0,0,0.8);
+}
+
+.film-title {
+    margin: 5px 0 0 0;
+    text-align: center;
+    color: #EEEEEE;
+    font-weight: 300;
+}
+
+
+@media screen and (max-width: 992px) {
+
+    .film-container {
+        width: calc(100% / 3);
+    }
+}
+
+@media screen and (max-width: 425px) {
+
+    .film-container {
+        width: calc(100% / 2);
+    }
 }

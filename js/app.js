@@ -46,13 +46,28 @@ document.addEventListener('DOMContentLoaded', function() {
 		let filmsSection = document.querySelector('.films-section');
 
 		films.forEach(function(film, index) {
+			console.log(film)
 			let filmElement = document.createElement('div');
 			let htmlContent = 
 				'<div class="film-container">' +
-				'<img src="assets/images/film-' + film.episode_id + '.jpeg"/>' +
+					'<div class="film-content">' +
+						'<a href="#">' + 
+							'<img src="assets/images/film-' + film.episode_id + '.jpeg"/>' +
+							'<p class="film-title">' + film.title + '</p>' +
+						'</a>' +
+					'</div>' +
 				'</div>';
+
 			filmElement.innerHTML = htmlContent;
-			filmsSection.appendChild(filmElement.firstChild);
+			
+			let filmElementChild = filmElement.firstChild;
+			filmsSection.appendChild(filmElementChild);
+
+
+			setTimeout(function() {
+				filmElementChild.style.opacity = 1
+			}, 50);
+			
 		});
 	});
 });
