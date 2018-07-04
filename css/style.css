@@ -14,6 +14,7 @@ body {
 	margin: 0;
 	background-color: #263238;
     font-family: 'Source Sans Pro', sans-serif;
+    color: #EEEEEE;
 }
 
 a {
@@ -30,9 +31,65 @@ section {
     text-align: center;
     font-size: 36px;
     font-family: Starjedi;
-    color: #EEEEEE;
     letter-spacing: 3px;
 }
+
+/* Loader */
+.loader {
+  position: relative;
+  z-index: -1;
+  top: 120px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 7rem;
+  transition: opacity 0.3s ease-out;
+}
+.loader:before, .loader:after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  animation-duration: 1.8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  filter: drop-shadow(0 0 0.7555555556rem rgba(255, 255, 255, 0.75));
+}
+.loader:before {
+  width: 100%;
+  padding-bottom: 100%;
+  box-shadow: inset 0 0 0 1.7rem #fff;
+  animation-name: pulsA;
+}
+.loader:after {
+  width: calc(100% - 0.8rem*2);
+  padding-bottom: calc(100% - 0.8rem*2);
+  box-shadow: 0 0 0 0 #fff;
+  animation-name: pulsB;
+}
+
+@keyframes pulsA {
+  0% {
+    box-shadow: inset 0 0 0 0.8rem #fff;
+    opacity: 1;
+  }
+  50%, 100% {
+    box-shadow: inset 0 0 0 0 #fff;
+    opacity: 0;
+  }
+}
+@keyframes pulsB {
+  0%, 50% {
+    box-shadow: 0 0 0 0 #fff;
+    opacity: 0;
+  }
+  100% {
+    box-shadow: 0 0 0 0.8rem #fff;
+    opacity: 1;
+  }
+}
+
 
 /* ================== */
 /* ===== HEADER ===== */
@@ -226,7 +283,10 @@ header {
     }
 }
 
+
+/* ================= */
 /* ===== FILMS ===== */
+/* ================= */
 
 .films-section {
     display: flex;
@@ -243,20 +303,21 @@ header {
     padding: 15px;
 }
 
-.film-content img {
+.film-image {
     box-shadow: 0 2px 10px rgba(0,0,0,0.5);
     max-width: 100%;
     transition: box-shadow 0.2s ease-out;
 }
-.film-content img:hover {
+.film-image:hover {
     box-shadow: 0 6px 30px rgba(0,0,0,0.8);
 }
 
 .film-title {
     margin: 5px 0 0 0;
+    font-family: 'Roboto Mono', monospace;
     text-align: center;
-    color: #EEEEEE;
     font-weight: 300;
+    color: #EEEEEE;
 }
 
 
@@ -272,4 +333,39 @@ header {
     .film-container {
         width: calc(100% / 2);
     }
+}
+
+
+/* ========================= */
+/* ===== SELECTED FILM ===== */
+/* ========================= */
+
+.selected-film-section {
+    display: flex;
+    justify-content: space-between;
+}
+
+.selected-film-image-container {
+    width: 30%;
+}
+
+.selected-film-description-container {
+    width: 65%;
+}
+
+.seleted-film-description-title {
+    margin: 0 0 10px 0;
+    font-family: 'Roboto Mono', monospace;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.seleted-film-description-content {
+    margin: 0 0 15px 0;
+}
+
+.seleted-film-information-container {
+    display: flex;
+    justify-content: space-between;
 }
