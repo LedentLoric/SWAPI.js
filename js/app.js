@@ -39,10 +39,10 @@ document.addEventListener('DOMContentLoaded', function() {
 	let loader = document.querySelector('.loader');
 
 	if (epId === null) {
-		sectionTitle.innerText = 'FilmS';
 
 		// Get all Films
 		makeAjaxRequest('https://swapi.co/api/films/', function(data) {
+			sectionTitle.innerText = 'FilmS';
 			loader.style.opacity = 0;
 
 			let films = data.results;
@@ -76,12 +76,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 				setTimeout(function() {
 					filmElementChild.style.opacity = 1
-				}, 50);
+				}, 50 * index);
 				
 			});
 		});
 	
 	} else {
+
 		let selectedFilmURL = localStorage.getItem('selectedFilmURL');
 
 		// Get selected Film
@@ -103,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			let descriptionElement = document.createElement('div');
 			descriptionElement.innerHTML = 
 				'<div class="selected-film-description-container">' + 
-					'<p class="seleted-film-description-title">Opening Crawl</p>' + 
+					'<p id="opening-crawl-title" class="seleted-film-description-title">Opening Crawl</p>' + 
 					'<p class="seleted-film-description-content">' + film.opening_crawl + '</p>' + 
 					'<div class="seleted-film-information-container">' + 
 						'<div class="seleted-film-information-content">' +
@@ -122,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			selectedFilmSection.appendChild(imageElement.firstChild);
 			selectedFilmSection.appendChild(descriptionElement.firstChild);
 
-			console.log(film);
+			selectedFilmSection.style.opacity = 1;
 		});
 	}
 	
